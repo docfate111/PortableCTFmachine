@@ -42,7 +42,8 @@ RUN python -m pip install --upgrade pip && \
 # ohmyzsh
 RUN apt install -y zsh && \
     chsh -s $(which zsh) && \
-    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
+    zsh
 # Install radare (need to fix)
 # RUN git clone --depth 1 https://github.com/radare/radare2 && \
 #    cd radare2 && \
@@ -53,7 +54,9 @@ RUN apt install -y zsh && \
 
 # Install pwntools and pwndbg
 RUN pip2 install git+https://github.com/Gallopsled/pwntools && \
-    cd /root/tools
+    cd /root/tools && \
+    pip3 install pwntools && \
+    pip3 install ptpython
     #  && \
     # git clone --depth 1 https://github.com/pwndbg/pwndbg && \
     # cd pwndbg && \
