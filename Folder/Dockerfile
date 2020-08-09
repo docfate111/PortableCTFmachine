@@ -24,7 +24,7 @@ RUN apt update && \
 
 RUN apt update && \
     apt install --no-install-recommends -y build-essential curl gdb \
-    gdb-multiarch gdbserver git \
+    gdb-multiarch gdbserver git nano \
     libncursesw5-dev python3-setuptools python-setuptools \
     python2.7 python3-pip tmux tree stow virtualenvwrapper \
     wget vim unzip \
@@ -33,21 +33,15 @@ RUN apt update && \
     z3 python-lzma net-tools strace ltrace \
     gcc-multilib g++-multilib ruby-full binutils-mips-linux-gnu sudo
 
-
-
-# Personal dotfiles
-RUN cd /root && \
-    rm .bashrc && \
-    git clone --recursive --depth 1 https://github.com/ctfhacker/dotfiles.git && \
-    cd dotfiles && \
-    ./install.sh
-
 # Upgrade pip and ipython
 RUN python -m pip install --upgrade pip && \
     python3 -m pip install --upgrade pip && \
     pip2 install -Iv ipython==5.3.0  && \
     pip3 install ipython
-
+# ohmyzsh
+RUN apt install -y zsh && \
+    chsh -s $(which zsh) && \
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 # Install radare (need to fix)
 # RUN git clone --depth 1 https://github.com/radare/radare2 && \
 #    cd radare2 && \
