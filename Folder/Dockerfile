@@ -65,7 +65,7 @@ RUN pip2 install git+https://github.com/Gallopsled/pwntools && \
     # ./setup.sh
 
 # Install 32bit dependencies
-RUN dpkg --add-architecture i386 && \
+RUN dpkg --add-architecture --force-overwrite i386 && \
     apt update && \
     apt --no-install-recommends -y install libc6:i386 libncurses5:i386 libstdc++6:i386 libc6-dev-i386 && \
     apt clean
