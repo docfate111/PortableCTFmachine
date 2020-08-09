@@ -37,7 +37,8 @@ RUN apt update && \
 RUN python -m pip install --upgrade pip && \
     python3 -m pip install --upgrade pip && \
     pip2 install -Iv ipython==5.3.0  && \
-    pip3 install ipython
+    pip3 install ipython && \
+    wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 # ohmyzsh
 RUN apt install -y zsh && \
     chsh -s $(which zsh) && \
