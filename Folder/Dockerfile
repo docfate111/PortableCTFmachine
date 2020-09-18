@@ -5,7 +5,6 @@
 
 FROM ubuntu:19.10
 ENV test false
-MAINTAINER Maintainer Cory Duplantis
 
 RUN apt update && \
     apt -y install locales
@@ -96,7 +95,8 @@ RUN cd /root/tools && \
     /root/.fzf/install --all --key-bindings --completion
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y software-properties-common
+    apt-get install --no-install-recommends -y software-properties-common && \
+    gem install one_gadget
 
 #  Install qemu with multiarchs
 #  RUN apt --no-install-recommends -y install qemu qemu-user qemu-user-static && \
