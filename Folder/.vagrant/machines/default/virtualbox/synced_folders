@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant":{"guestpath":"/home/vagrant","hostpath":"/Users/thwilliams/Code/PortableCTFmachine/Folder/shared","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/thwilliams/Code/PortableCTFmachine/Folder","disabled":false,"__vagrantfile":true}}}
