@@ -2,9 +2,9 @@ FROM ubuntu:latest
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y && \
     apt install -y python3 && \
-    apt install -y python3-pip git sudo ruby gdb nano tmux wget && \
+    apt install -y python3-pip git ltrace sudo ruby gdb nano tmux wget && \
     python3 -m pip install --upgrade pip && \
-    python3 -m pip install pwntools ptpython setuptools && \
+    python3 -m pip install pwntools ptpython setuptools ropper && \
     # wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh && \
     git clone --depth 1 https://github.com/JonathanSalwan/ROPgadget.git && \
     cd ROPgadget && \
