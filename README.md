@@ -1,7 +1,7 @@
 # pwn
-A vagrant VM to play CTF challenges
+A docker container to play CTF challenges or triage fuzzer crashes in Ubuntu
 To build:
 
 ```
-vagrant up && vagrant ssh
+./setup.sh
 ```
